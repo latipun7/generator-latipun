@@ -1,0 +1,78 @@
+{
+  "name": "generator-latipun",
+  "version": "0.0.0",
+  "description": "Generate initial typescript project ✨",
+  "homepage": "https://github.com/latipun7/generator-latipun#readme",
+  "author": "Latipun <latifsulistyo.me@gmail.com> (https://latipun7.github.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/latipun7/generator-latipun.git"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "files": [
+    "generators",
+    "templates"
+  ],
+  "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "boilerplate",
+    "repository",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "rm -rf generators && tsc",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "lodash": "^4.17.21",
+    "validator": "^13.6.0",
+    "yeoman-generator": "^5.4.0",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^16.3.0",
+    "@types/validator": "^13.6.3",
+    "@types/yeoman-generator": "^5.2.1",
+    "@types/yeoman-test": "^4.0.2",
+    "@types/yosay": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-ruppy-jest": "^1.3.0",
+    "eslint-config-ruppy-node": "^1.7.0",
+    "eslint-config-ruppy-ts": "^1.7.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5",
+    "yeoman-environment": "^3.5.1",
+    "yeoman-test": "^6.2.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

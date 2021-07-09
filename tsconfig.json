@@ -1,0 +1,35 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+
+    "baseUrl": "./",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "typeRoots": ["./node_modules/@types", "./typings"],
+
+    "newLine": "lf",
+    "outDir": "generators",
+    "removeComments": true,
+    "sourceMap": true,
+
+    "checkJs": true,
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["ESNext", "ESNext.AsyncIterable"],
+    "target": "ES2015",
+
+    "skipLibCheck": true
+  }
+}
