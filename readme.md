@@ -1,14 +1,14 @@
-# generator-latipun
+# `generator-latipun ⚔️`
 
 [![Discord][discord-image]][discord-url]
 [![GitHub Workflow Status][workflow-image]][workflow-url]
 [![NPM Package][npm-image]][npm-url]
 
-> Generate initial typescript project ✨
+> Generator Latipun is a Yeoman Generator that let you generate initial typescript project boilerplate ✨
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-latipun using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and `generator-latipun` using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo generator-latipun
@@ -18,6 +18,29 @@ Then generate your new project:
 
 ```bash
 yo latipun
+```
+
+## Usage
+
+```log
+❯ yo latipun --help
+Usage:
+  yo latipun:app [<destination>] [options]
+
+Generate Latipun's project boilerplate ⚔️
+
+Options:
+  -h,   --help           # Print the generator's options and usage
+        --skip-cache     # Do not remember prompt answers               Default: false
+        --skip-install   # Do not automatically install dependencies    Default: false
+        --force-install  # Fail on install dependencies error           Default: false
+        --ask-answered   # Show prompts for already configured options  Default: false
+
+Arguments:
+  destination  #
+        The folder to generate the project, absolute or relative to the current working directory.
+        If not provided, defaults to the current working directory.
+  Type: String  Required: false
 ```
 
 ## Getting To Know Yeoman

@@ -1,0 +1,3 @@
+# © <%- authorName || projectName %><%- authorEmail && ` <${authorEmail}>` %><%- authorURL && ` (${authorURL})` %>
+<%- authorName === 'Latif Sulistyo' ? '# a.k.a. Latipun / Ryuuki\n' : '' %>
+*                   <%- `@${githubUser}` %>

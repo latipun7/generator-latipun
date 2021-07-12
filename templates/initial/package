@@ -1,0 +1,38 @@
+{
+  "name": "<%- projectName %>",
+  <% if (publishable) { %>"version": "0.0.0",<% } %>
+  <% if (description) { %>"description": "<%- description %>",<% } %>
+  <% if (homepage) { %>"homepage": "<%- homepage %>",<% } %>
+  <% if (authorName) { %>"author": "<%- authorName %><%- authorEmail && ` <${authorEmail}>` %><%- authorURL && ` (${authorURL})` %>",<% } %>
+  "license": "MIT",
+  <% if (repoURL) { %>"repository": {
+    "type": "git",
+    "url": "<%- repoURL %>"
+  },<% } %>
+  "engines": {
+    "node": ">=14"<% if (packager === 'yarn') { %>,
+    "yarn": ">=1.19"<% } else { %>,
+    "npm": ">=5.2"<% } %>
+  },
+  <% if (publishable) { %>"main": "dist/src/index.js",
+  "keywords": [
+    "typescript"
+  ],<% } %>
+  "scripts": {
+    "build": "echo 'build'",
+    "dev": "echo 'dev'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "format": "prettier --check .",
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

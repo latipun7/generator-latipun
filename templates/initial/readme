@@ -1,0 +1,55 @@
+# `<%= projectName %><%= projectEmoji ?` ${projectEmoji}`: '' %>`
+
+[![Discord][discord-image]][discord-url]
+[![GitHub Workflow Status][workflow-image]][workflow-url] <%= publishable ? '[![NPM Package][npm-image]][npm-url]' : '' %>
+
+> **<%= projectTitle || '' %>**
+>
+> <%= description || '' %>
+
+## Getting Started
+
+1. Make sure have [nodeJS LTS or latest](https://nodejs.org/) installed and <%= packager === 'yarn' ? '[yarn](https://www.npmjs.com/package/yarn) installed globally.' : '[npm](https://npmjs.com) installed.' %>
+   <% if (repoURL) { %>
+
+1. Clone this repository
+
+   ```bash
+   git clone <%= repoURL %>
+   ```
+
+<% } %>
+
+1. Install all project dependencies
+
+   ```bash
+   cd path/to/<%= projectName %>
+   <%= packager %> install
+   ```
+
+1. Start development server
+
+   ```bash
+   <%= packager === 'yarn' ? packager : `${packager} run` %> dev
+   ```
+
+1. Build for production
+
+   ```bash
+   <%= packager === 'yarn' ? packager : `${packager} run` %> build
+   ```
+
+## License
+
+MIT<% if (authorName) {
+if (authorURL) { %>
+© [<%= authorName %>](<%= authorURL %>)<% } else { %>
+© <%= authorName %>
+<% } } %>
+
+[discord-image]: https://img.shields.io/discord/758271814153011201?label=Developers%20Indonesia&logo=discord&style=flat-square
+[discord-url]: https://discord.gg/njSj2Nq "Chat and discuss at Developers Indonesia"
+<% if (githubUser && githubRepo) { %>[workflow-image]: https://img.shields.io/github/workflow/status/<%= githubUser %>/<%= githubRepo %>/<%= deployable ? 'Continuous%20Integration%20and%20Continuous%20Deployment%20%E2%9A%99%F0%9F%9A%80' : 'Continuous%20Integration%20%E2%9A%99' %>?label=<%= deployable ? 'CI%2FCD' : 'CI' %>&logo=github%20actions&style=flat-square
+[workflow-url]: https://github.com/<%= githubUser %>/<%= githubRepo %>/actions "GitHub Actions"<% } %>
+<% if (publishable) { %>[npm-image]: https://img.shields.io/npm/v/<%= projectName %>?label=package&logo=npm&style=flat-square
+[npm-url]: https://npmjs.org/package/<%= projectName %> "<%= projectName %> on NPM"<% } %>

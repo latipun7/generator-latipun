@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "tests/**/*", "typings/**/*", "**/*.config.ts"],
   "compilerOptions": {
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -9,14 +9,15 @@
     "noUnusedParameters": true,
     "strict": true,
 
+    "baseUrl": "./",
     "module": "CommonJS",
     "moduleResolution": "node",
+    "paths": {},
     "resolveJsonModule": true,
-    "rootDir": "src",
     "typeRoots": ["./node_modules/@types", "./typings"],
 
     "newLine": "lf",
-    "outDir": "generators",
+    "outDir": "dist",
     "removeComments": true,
     "sourceMap": true,
 
@@ -26,6 +27,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "lib": ["ESNext", "ESNext.AsyncIterable"],
     "target": "ES2015",
 
