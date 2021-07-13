@@ -5,6 +5,7 @@
   <% if (homepage) { %>"homepage": "<%- homepage %>",<% } %>
   <% if (authorName) { %>"author": "<%- authorName %><%- authorEmail && ` <${authorEmail}>` %><%- authorURL && ` (${authorURL})` %>",<% } %>
   "license": "MIT",
+  <% if (!publishable) { %>"private": true,<% } %>
   <% if (repoURL) { %>"repository": {
     "type": "git",
     "url": "<%- repoURL %>"

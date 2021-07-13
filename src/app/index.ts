@@ -169,7 +169,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         type: 'confirm',
         name: 'deployable',
         message: 'Is this project would be deployed to github pages?',
-        default: this.config.get('deployable') || true,
+        default: this.config.get('deployable') ?? true,
       },
     ]);
 
@@ -177,7 +177,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
       type: 'confirm',
       name: 'publishable',
       message: 'Is this project would be published to NPM?',
-      default: this.config.get('publishable') || !answers.deployable,
+      default: this.config.get('publishable') ?? !answers.deployable,
     });
 
     this.props = { ...answers, ...answerPublish };
