@@ -55,4 +55,4 @@ jobs:
         run: yarn build
 
       - name: Run Test 🛠
-        run: yarn test
+        run: git config --global user.email 'latifsulistyo.me@gmail.com' && yarn test
