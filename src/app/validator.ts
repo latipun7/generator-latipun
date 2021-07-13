@@ -1,6 +1,12 @@
 import emojiRegex from 'emoji-regex/es2015/text';
 import validator from 'validator';
 
+export const isValidProjectName = (input: string) => {
+  if (input.length > 100) return 'Project name is longer than 100 characters.';
+
+  return true;
+};
+
 export const isEmail = (input: string) => {
   const emptyInput = input === '';
 

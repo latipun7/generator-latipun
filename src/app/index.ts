@@ -9,7 +9,7 @@ import type { Except, JsonValue } from 'type-fest';
 import type { GeneratorOptions } from 'yeoman-generator';
 
 import { githubRepoNameFromURL, projectNameFilter } from '../utils';
-import { isEmail, isEmoji, isURL } from './validator';
+import { isEmail, isEmoji, isURL, isValidProjectName } from './validator';
 
 type Prompts = {
   projectName: string;
@@ -88,6 +88,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         message: 'Project name:',
         default: this.config.get('projectName') || folderName,
         filter: projectNameFilter,
+        validate: isValidProjectName,
       },
       {
         type: 'input',
@@ -102,18 +103,21 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'projectTitle',
         message: 'Project title:',
         default: this.config.get('projectTitle') || startCase(folderName),
+        filter: trim,
       },
       {
         type: 'input',
         name: 'description',
         message: 'Project description:',
         default: this.config.get('description'),
+        filter: trim,
       },
       {
         type: 'input',
         name: 'homepage',
         message: 'Project homepage:',
         default: this.config.get('homepage'),
+        filter: trim,
         validate: isURL,
       },
       {
@@ -121,6 +125,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'repoURL',
         message: 'Repository URL:',
         default: this.config.get('repoURL'),
+        filter: trim,
         validate: isURL,
       },
       {
@@ -128,12 +133,14 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'authorName',
         message: 'Author name:',
         default: this.config.get('authorName') || this.user.git.name(),
+        filter: trim,
       },
       {
         type: 'input',
         name: 'authorEmail',
         message: 'Author email:',
         default: this.config.get('authorEmail') || this.user.git.email(),
+        filter: trim,
         validate: isEmail,
       },
       {
@@ -141,6 +148,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'authorURL',
         message: 'Author URL:',
         default: this.config.get('authorURL'),
+        filter: trim,
         validate: isURL,
       },
       {
