@@ -1,4 +1,4 @@
-import { kebabCase } from 'lodash';
+import { kebabCase, trim } from 'lodash';
 
 export const projectNameFilter = (input: string) => {
   const projectNames = input.split('/');
@@ -13,6 +13,8 @@ export const projectNameFilter = (input: string) => {
 
   return kebabCase(input);
 };
+
+export const whitespacesFilter = (input: string) => trim(input);
 
 export const githubRepoNameFromURL = (repoURLPattern: string | undefined) => {
   if (!repoURLPattern) return '';

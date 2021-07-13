@@ -2,13 +2,17 @@ import chalk from 'chalk';
 import YeomanGenerator from 'yeoman-generator';
 import yosay from 'yosay';
 import { chmodSync } from 'fs';
-import { startCase, trim } from 'lodash';
+import { startCase } from 'lodash';
 import { resolve, sep } from 'path';
 import type YoStorage from 'yeoman-generator/lib/util/storage';
 import type { Except, JsonValue } from 'type-fest';
 import type { GeneratorOptions } from 'yeoman-generator';
 
-import { githubRepoNameFromURL, projectNameFilter } from '../utils';
+import {
+  githubRepoNameFromURL,
+  projectNameFilter,
+  whitespacesFilter,
+} from '../utils';
 import { isEmail, isEmoji, isURL, isValidProjectName } from './validator';
 
 type Prompts = {
@@ -95,7 +99,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'projectEmoji',
         message: 'Project icon:',
         default: this.config.get('projectEmoji'),
-        filter: trim,
+        filter: whitespacesFilter,
         validate: isEmoji,
       },
       {
@@ -103,21 +107,21 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'projectTitle',
         message: 'Project title:',
         default: this.config.get('projectTitle') || startCase(folderName),
-        filter: trim,
+        filter: whitespacesFilter,
       },
       {
         type: 'input',
         name: 'description',
         message: 'Project description:',
         default: this.config.get('description'),
-        filter: trim,
+        filter: whitespacesFilter,
       },
       {
         type: 'input',
         name: 'homepage',
         message: 'Project homepage:',
         default: this.config.get('homepage'),
-        filter: trim,
+        filter: whitespacesFilter,
         validate: isURL,
       },
       {
@@ -125,7 +129,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'repoURL',
         message: 'Repository URL:',
         default: this.config.get('repoURL'),
-        filter: trim,
+        filter: whitespacesFilter,
         validate: isURL,
       },
       {
@@ -133,14 +137,14 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'authorName',
         message: 'Author name:',
         default: this.config.get('authorName') || this.user.git.name(),
-        filter: trim,
+        filter: whitespacesFilter,
       },
       {
         type: 'input',
         name: 'authorEmail',
         message: 'Author email:',
         default: this.config.get('authorEmail') || this.user.git.email(),
-        filter: trim,
+        filter: whitespacesFilter,
         validate: isEmail,
       },
       {
@@ -148,7 +152,7 @@ export default class AppGenerator extends YeomanGenerator<Options> {
         name: 'authorURL',
         message: 'Author URL:',
         default: this.config.get('authorURL'),
-        filter: trim,
+        filter: whitespacesFilter,
         validate: isURL,
       },
       {
