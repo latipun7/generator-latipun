@@ -1,18 +1,18 @@
 # https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 # Workflows commands (::set-output, etc): # https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter
 
-name: Test ⚙⚛✨🚀
+name: Continuous Integration and Continuous Deployment ⚙🚀
 
 on:
   push:
-    branches: [main]
+    branches: [main, "**.x", next, beta, alpha]
 
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
-  test:
-    name: Test ⚙⚛
+  test_build:
+    name: Test and Build ⚙⚛
 
     strategy:
       matrix:
@@ -56,3 +56,30 @@ jobs:
 
       - name: Run Test 🛠
         run: git config --global user.email 'latifsulistyo.me@gmail.com' && yarn test
+
+  release:
+    name: Release ✨🚀
+    runs-on: ubuntu-latest
+    needs: test_build
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Use NodeJS LTS 📦
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: "lts/*"
+          cache: yarn
+
+      - name: Install Dependencies ✨
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Release 🚀
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
