@@ -21,7 +21,7 @@ module.exports = {
       '@semantic-release/git',
       {
         message:
-          'chore(release): <%= nextRelease.version %> 📦🚀 [skip ci]\n\n<%= nextRelease.notes %>',
+          'chore(release): publish <%= nextRelease.gitTag %> 📦🚀 [skip ci]\n\n<%= nextRelease.notes %>',
         assets: [
           'changelog.md',
           'package.json',
@@ -64,6 +64,8 @@ module.exports = {
     },
   },
   presetConfig: {
+    header:
+      '# Changelog\n\nAll notable changes to this project will be documented in this file.\n\nThis project adheres to [Semantic Versioning](https://semver.org) and [Conventional Commits](https://www.conventionalcommits.org) for commit guidelines.\n',
     types: [
       { type: 'feat', section: '✨ Features' },
       { type: 'feature', section: '✨ Features' },
