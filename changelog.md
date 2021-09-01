@@ -1,3 +1,9 @@
+### [1.0.1](https://github.com/latipun7/generator-latipun/compare/v1.0.0...v1.0.1) (2021-09-01)
+
+### 🔐 Security Patches
+
+- **deps-tree:** bump `tar` to 6.1.11 ([#6](https://github.com/latipun7/generator-latipun/issues/6)) ([788fbb2](https://github.com/latipun7/generator-latipun/commit/788fbb2bc5ebebcecbf96cb3fc143b6abf9bcf95))
+
 ## 1.0.0 (2021-07-16)
 
 ### ✨ Features
