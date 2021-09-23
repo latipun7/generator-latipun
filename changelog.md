@@ -1,3 +1,9 @@
+### [1.0.2](https://github.com/latipun7/generator-latipun/compare/v1.0.1...v1.0.2) (2021-09-23)
+
+### 🔐 Security Patches
+
+- **deps:** bump semver-regex from 3.1.2 to 3.1.3 ([#7](https://github.com/latipun7/generator-latipun/issues/7)) ([a646979](https://github.com/latipun7/generator-latipun/commit/a6469798ba34f429d9ef7bada36323d8db1d410f))
+
 ### [1.0.1](https://github.com/latipun7/generator-latipun/compare/v1.0.0...v1.0.1) (2021-09-01)
 
 ### 🔐 Security Patches
